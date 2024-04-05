@@ -1,0 +1,22 @@
+{
+  "name": "thread-app-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AneeshSrivastava/thread-app-backend.git",
+  "author": "Aneesh Srivastava <srivastavaaneesh004@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"yarn start\"",
+    "start": "node build/index.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.2",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1"
+  }
+}
