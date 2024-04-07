@@ -6,8 +6,10 @@ async function createApolloGraphqlServer() {
   // Create GraphQl Server
   const gqlServer = new ApolloServer({
     typeDefs: `
+        ${User.typeDefs}
         type Query {
             ${User.queries}
+            
         }
         type Mutation {
             ${User.mutations}

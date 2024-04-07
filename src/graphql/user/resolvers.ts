@@ -1,6 +1,7 @@
 import { emitWarning } from "node:process";
 import UserService, { CreateUserPayload } from "../../services/user";
 import { run } from "node:test";
+import { prismaClient } from "../../lib/db";
 
 const queries = {
   getUserToken: async (
@@ -12,6 +13,14 @@ const queries = {
       password: payload.password,
     });
     return token;
+  },
+  getCurrentLoggedInUser: async (_: any, parameters: any, context: any) => {
+    if (context && context.user) {
+      const id = context.user.id;
+      const user = await UserService.getUserById(id);
+      return user;
+    }
+    throw new Error("Invalid User!");
   },
 };
 
